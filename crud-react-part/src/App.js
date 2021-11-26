@@ -7,11 +7,10 @@ const initialState = {
 };
 const Store = createContext(initialState)
 
-//Formulario para crear tareas
+//Formulario para crear y editar tareas
 const Form = () => {
   const formRef = useRef(null);
   const { dispatch, state: { item } } = useContext(Store);
-  //const item = todo.item;
   const [state, setState] = useState(item);
 
   const onAdd = (event) => {
@@ -41,7 +40,7 @@ const Form = () => {
 
   const onEdit = (event) => {
     event.preventDefault();
-    
+
     const request = {
       name: state.name,
       id: item.id,
@@ -103,6 +102,7 @@ const List = () => {
 
   const onEdit = (todo) =>{
     dispatch({type: "edit-item", item: todo})
+    console.log(todo)
   };
 
   return <div>
@@ -148,7 +148,7 @@ function reducer(state, action){
     case 'update-list':
       return {...state, list: action.list}
     case 'edit-item':
-      return {...state, list: action.item}
+      return {...state, item: action.item}
     case 'add-item':
       const newList = state.list;
       newList.push(action.item);

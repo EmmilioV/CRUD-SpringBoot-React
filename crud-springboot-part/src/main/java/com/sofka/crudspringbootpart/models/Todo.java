@@ -30,11 +30,11 @@ public class Todo {
         this.name = name;
     }
 
-    public Boolean getCompleted() {
-        return isCompleted;
+    public Boolean getIsCompleted() {
+        return this.isCompleted;
     }
 
-    public void setCompleted(Boolean completed) {
-        isCompleted = completed;
+    public void setIsCompleted(Boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 }
